@@ -70,10 +70,10 @@ app.get("/show", (req,res)=>{
     // res.render("hello.hbs", {lat: 31.4457743, lng:75.874584})
     // var budget = req.query.budget;
     // var {meal} = req.body;
-    var people = req.query.people;
-    var cat = req.query.cat;
+    var people = req.query.people || 1;
+    var cat = req.query.cat || "none";
     console.log(cat);
-    var perPerson = req.query.budget;
+    var perPerson = req.query.budget || 500;
     var limit = perPerson *0.1;
     Restaurant.find({
         "menu.catAltName": cat,
