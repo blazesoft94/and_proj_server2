@@ -86,7 +86,10 @@ app.get("/show", (req,res)=>{
             console.log("found");
             // console.log(data)
             // res.render("listRestaurants",{ restaurants : data})
-            res.json(data);
+            var obj = {
+                result: data
+            }
+            res.json(obj);
     },err=>console.error(err));
 });
 app.get("/", (req,res)=>{
