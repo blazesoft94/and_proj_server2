@@ -1,0 +1,14 @@
+{{> head}}
+<body>
+    <div id="map" style="width:400px;height:400px">my map</div>
+    <form action="/hello/" method="POST">
+        Name <input type="text">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+<script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+<script src="js/map.js"></script>
+<script>
+    myMap({{lat}}, {{lng}});
+</script>
+</html>

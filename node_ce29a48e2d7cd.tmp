@@ -1,0 +1,85 @@
+
+var bodyParser = require("body-parser")
+var path= require("path");
+var fs = require("fs");
+var express = require("express");
+const hbs = require("hbs");
+var http = require("http");
+var app =express();
+var server = http.createServer(app)
+var geoCode = require("./geoCode/geoCode.js")
+var mongoose = require("mongoose");
+var Restaurant = require("./schemas/restaurantSchema");
+const publicPath = path.join(__dirname+"/public");
+var port = process.env.PORT || 4000;
+
+var categories = {
+    FastFood: /fast food|burger/,
+    Pizza: /pizza/,
+    Bbq: /bbq|barbeque|b.b.q/,
+    Sandwich: /sandwich/,
+    Soup: /soup/,
+    Chinese: /chinese/,
+    Pasta: /pasta/,
+    Steak: /steak/,
+    All: /./
+}
+
+mongoose.connect("mongodb://abrehman94:realmadrid94@ds113738.mlab.com:13738/restaurants")
+var db = mongoose.connection;
+db.once("open",()=>{
+    console.log("connected to database");
+})
+db.on("error",()=>console.log("error connecting to database"));
+
+hbs.registerPartials(__dirname+"/views/partials");
+
+app.use(express.static(publicPath));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+app.set("view engine", "hbs")
+console.log(publicPath)
+// app.get("/", (req,res)=>{
+    // res.send("yoo");
+// })
+app.get("/displayLocation", (req,res)=>{
+    // res.render("hello.hbs", {lat: 31.4457743, lng:75.874584})
+    res.redirect("/")
+});
+
+app.post("/show", (req,res)=>{
+    console.log("post request");
+    var {budget} = req.body;
+    // var {meal} = req.body;
+    var {people} = req.body;
+    var {cat} = req.body;
+    var perPerson = parseInt(budget)/parseInt(people)
+    console.log(perPerson);
+    // Restaurant.find({"prices.averagePrice" : {$gt: perPerson-50, $lt : perPerson+50}})
+    // .sort({"ratings.rating": -1})
+    // .then((data)=>{
+    //     res.render("listRestaurants",{restaurants: data})
+    // }, err=>console.log(err))
+    console.log("category is:",cat, "-----  regex is:", categories[cat]);
+    Restaurant.find({
+        "menu.catName":
+            { $regex: categories[cat], $options: 'i'},
+        // "prices.average" : 
+        //     {$gt: perPerson-50, $lt : perPerson+50} 
+        })
+    .then((data)=>{
+            // console.log(data)
+            console.log(typeof(data.prices.average));
+            res.render("listRestaurants",{ restaurants : data})
+    });
+
+}); 
+
+app.listen(port, ()=>console.log("listening on port",port));
+
+
+// geoCode("kfc lahore")
+//     .then((data)=>{
+//         console.log(data)
+//     })
+

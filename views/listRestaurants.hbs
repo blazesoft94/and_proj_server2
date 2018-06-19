@@ -1,0 +1,9 @@
+{{> head}}
+<body>
+    <h1 class="mt-5">Here are some restaurants</h1>
+    {{#each restaurants}}
+        <p><a href="menu?restaurant={{this.name}}" >{{this.name}}</a> - {{this.ratings.rating}} - {{this.ratings.ratingCount}}</p>
+    {{/each}}
+    {{!-- {{restaurants}} --}}
+</body>
+</html>

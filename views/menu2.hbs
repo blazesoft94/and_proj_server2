@@ -1,0 +1,112 @@
+{{> head}}
+<h1 class="title">{{restaurant.name}}</h1>
+<div class="">
+            {{!-- <button class="btn" type="button" data-toggle="collapse" data-target="#menu-nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span></button> --}}
+            <button id="displayCategories" type="button">
+                Categories
+            </button>
+        </div>
+<script>
+    $("#displayCategories").click(function(){
+        $(".menu-nav-row").slideToggle();
+    });
+</script>
+<div class="container-fluid con">
+    <div class="row menu-nav-row">
+        
+        
+        <div id="menu-nav" class="col-md-2 menu-nav">
+            <div class="row mt-md-4">
+                
+            </div>
+            
+            {{#each restaurant.menu}}
+            <div class="row">
+                <a href="#{{hyphenTheSpaces this.catName}}"><h4 class="ml-md-3 menu-cat">{{this.catName}}</h3></a>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-7 menu-holder">
+            {{!-- <div class="col-md-2 bg-dark"></div> --}}
+                {{#each restaurant.menu}}
+                    <div class="row" >
+                        {{!-- <div class="col-md-3"></div> --}}
+                        <div class="col-md-12 cul" style="box-sizing:border-box;">
+                            <h3 class="menu-cat mt-3" id="{{hyphenTheSpaces this.catName}}">{{this.catName}}</h3>
+                            <div class="row mt-md-4" style="width:100%;"></div>
+                            <div class="row">
+                                {{#each (pairMaker this.itemPrices)}}
+                                    {{!-- <div class="row">
+                                        <div class="col-12">
+                                            {{this}}
+                                        </div>
+                                    </div> --}}
+                                    <div class="col-md-6 pr-3">
+                                    {{!-- {{this.left}} --}}
+                                        {{#each this.left}}
+                                            {{!-- <div class="row"> --}}
+                                                <div class="menu-item">
+                                                    <dl>
+                                                        <dt class="align-left"><span>{{this.itemName}}</span>
+                                                        </dt>
+                                                        <dd>{{this.price}}</dd>
+                                                    </dl>
+                                                </div>
+                                            {{!-- </div> --}}
+                                        {{/each}}
+                                    </div>
+                                    <div class="col-md-6 pl-3" style="border-left: 2px solid orangered;">
+                                        {{#each this.right}}
+                                            {{!-- <div class="row"> --}}
+                                                <div class="menu-item">
+                                                    <dl>
+                                                        <dt class="align-left"><span>{{this.itemName}}</span>
+                                                        </dt>
+                                                        <dd>{{this.price}}</dd>
+                                                    </dl>
+                                                </div>
+                                            {{!-- </div> --}}
+                                        {{/each}}
+                                    </div>
+                                {{/each}}
+                            </div>
+                            <div class="row mb-md-3" style="width:100%;"></div>
+                            
+                            
+                            
+                        </div>
+                        {{!-- <div class="col-md-3">
+                            <div id="map" style="width:100%;height:400px;">
+                                
+                            </div>
+                        </div> --}}
+                        
+                        {{!-- <div class="col-md-1"></div> --}}
+                    </div>
+                {{/each}}
+        </div>
+        <div class="col-md-3" style="width:100%;">
+            <div id="map"  style="width:100%;height:400px;"></div>
+        </div>
+    </div>
+</div>
+<script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+<script src="js/map.js"></script>
+<script>
+    myMap( {{restaurant.location.lat}},{{restaurant.location.lng}});
+</script>
+<script>
+    $(document).on('click', 'a[href^="#"]', function (event) {
+    event.preventDefault();
+
+    $('html, body').animate({
+        scrollTop: ($($.attr(this, 'href')).offset().top -60)
+    }, 500);
+});
+</script>
+<script src="js/menu.js"></script>
+{{>footer}}

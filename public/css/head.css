@@ -1,0 +1,85 @@
+/*--reset--*/
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
+ol,ul{list-style:none;margin:0px;padding:0px;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
+table{border-collapse:collapse;border-spacing:0;}
+/*--start editing from here--*/
+a{text-decoration:none;}
+.txt-rt{text-align:right;}/* text align right */
+.txt-lt{text-align:left;}/* text align left */
+.txt-center{text-align:center;}/* text align center */
+.float-rt{float:right;}/* float right */
+.float-lt{float:left;}/* float left */
+.clear{clear:both;}/* clear float */
+.pos-relative{position:relative;}/* Position Relative */
+.pos-absolute{position:absolute;}/* Position Absolute */
+.vertical-base{	vertical-align:baseline;}/* vertical align baseline */
+.vertical-top{	vertical-align:top;}/* vertical align top */
+nav.vertical ul li{	display:block;}/* vertical menu */
+nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
+img{max-width:100%;}
+/*--end reset--*/
+body {
+    font-family: 'Hind', sans-serif;
+    background: url(../images/bg-2.jpg)no-repeat center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    background-attachment: fixed;
+	text-align: center;
+	color:white;
+}
+nav{
+	position: relative;
+}
+nav.navbar{
+	background: rgba(44, 47, 47, 0.95);
+}
+nav .navbar-brand{
+	display: inline-block;
+    text-decoration: none;
+	position: relative;
+	font-family: 'Dancing Script', cursive;
+	font-size:1.5em;
+	text-shadow: 0px 0px 5px #cc460a!important;
+}
+.underline::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+	background: #e0906c;
+	animation: underline 1s forwards;
+	/* transition: width 1s 1.3s; */
+}
+
+.underline-fast::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+	background: #e0906c;
+	animation: underline 0.5s forwards;
+	/* transition: width 1s 1.3s; */
+}
+/* nav .navbar-brand:hover::after {
+    width: 100%;
+} */
+@keyframes underline{
+	from{
+		width:0;
+	}
+	to{
+		width:100%;
+	}
+}
+nav .nav-link{
+	color: white!important;
+	font-size:1.1em;
+
+	/* text-shadow: 1px 1px 3px #000 */
+}

@@ -1,0 +1,648 @@
+/*
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+*/
+/*--reset--*/
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
+ol,ul{list-style:none;margin:0px;padding:0px;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
+table{border-collapse:collapse;border-spacing:0;}
+/*--start editing from here--*/
+a{text-decoration:none;}
+.txt-rt{text-align:right;}/* text align right */
+.txt-lt{text-align:left;}/* text align left */
+.txt-center{text-align:center;}/* text align center */
+.float-rt{float:right;}/* float right */
+.float-lt{float:left;}/* float left */
+.clear{clear:both;}/* clear float */
+.pos-relative{position:relative;}/* Position Relative */
+.pos-absolute{position:absolute;}/* Position Absolute */
+.vertical-base{	vertical-align:baseline;}/* vertical align baseline */
+.vertical-top{	vertical-align:top;}/* vertical align top */
+nav.vertical ul li{	display:block;}/* vertical menu */
+nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
+img{max-width:100%;}
+/*--end reset--*/
+body {
+    font-family: 'Hind', sans-serif;
+    background: url(../images/bg-2.jpg)no-repeat center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+}
+nav{
+	position: relative;
+}
+nav.navbar{
+	background: rgba(44, 47, 47, 0.95);
+}
+nav .navbar-brand{
+	display: inline-block;
+    text-decoration: none;
+	position: relative;
+	font-family: 'Dancing Script', cursive;
+	font-size:1.5em;
+	text-shadow: 0px 0px 5px #cc460a!important;
+}
+.underline::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+	background: #e0906c;
+	animation: underline 1s forwards;
+	/* transition: width 1s 1.3s; */
+}
+
+.underline-fast::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+	background: #e0906c;
+	animation: underline 0.5s forwards;
+	/* transition: width 1s 1.3s; */
+}
+/* nav .navbar-brand:hover::after {
+    width: 100%;
+} */
+@keyframes underline{
+	from{
+		width:0;
+	}
+	to{
+		width:100%;
+	}
+}
+nav .nav-link{
+	color: white!important;
+	font-size:1.1em;
+
+	/* text-shadow: 1px 1px 3px #000 */
+}
+
+h1{
+	font-family: 'Playball', cursive;
+}
+.clearfix{
+	clear:both;
+}
+/**** LOGIN_SIGNUP ******/
+/* form */
+/* .container {
+    width: 50%;
+    margin: 0 auto;
+} */
+h1.title {
+    font-size: 3em;
+    color: #fff;
+    text-transform: capitalize;
+	padding: 0 0 0 0;
+	margin-top:1.5em;
+	text-shadow: 4px 4px 5px rgba(0,0,0,0.8);
+}
+h2.sub-head {
+    color: #fff;
+    text-transform: capitalize;
+    font-size: 1.6em;
+    letter-spacing: 1px;
+    margin: 0.5em 0;
+}
+.container {
+    background: rgba(44, 47, 47, 0.8);
+    /* margin: 1.5em 0 2em 0; */
+	padding: 1.5em;
+	border-radius: 2%;
+	box-sizing: border-box;
+}
+.row-item-odd{
+	margin: 0 1em 0.5em 0;
+	/* width: 99%; */
+	/* box-sizing:border-box; */
+}
+.row-item-even{
+	margin: 0 0.5em 1em 0;
+	/* width: 99%; */
+	/* box-sizing:border-box; */
+}
+
+
+.row-item label {
+    float: left;
+    color: #fff;
+    margin: 0 0 1em 0;
+    font-size: 1em;
+    text-transform: capitalize;
+}
+.row-item input, .row-item input:focus{
+	outline: none;
+	border-radius: 5px;
+	font-size: 0.9em;
+	background: transparent;
+	padding: 0.90em 1em!important;
+	border: 1px solid #fff;
+	color: #fff!important;
+	/* -webkit-appearance: none; */
+	width: 100%;
+	transition: border 0.1s linear;
+	
+}
+.row-item select {
+    outline: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    background: transparent;
+    padding: 0.8em 1em;
+    border: 1px solid #fff;
+    color: #fff!important;
+    /* -webkit-appearance: none; */
+	width: 100%;
+	box-sizing: border-box;
+	transition: border 0.1s linear;
+}
+
+.row-item select:hover{
+	border: 1px solid #f56b2e;
+}
+option{
+	background:rgba(44, 47, 47, 0.95);
+}
+/* 
+@keyframes click-wave {
+	0% {
+	  height: 40px;
+	  width: 40px;
+	  opacity: 0.35;
+	  position: relative;
+	}
+	100% {
+	  height: 200px;
+	  width: 200px;
+	  margin-left: -80px;
+	  margin-top: -80px;
+	  opacity: 0;
+	}
+  }
+  
+  .option-input {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+	position: relative;
+	top: 10px;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 30px;
+	width: 30px;
+	transition: all 0.15s ease-out 0s;
+	background: #cbd1d8;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	margin-right: 0.5rem;
+	outline: none;
+	position: relative;
+	z-index: 1000;
+  }
+  .form-check.hungry{
+	  margin-right:1rem;
+  }
+  .option-input:hover {
+	background: #fff;
+  }
+  .option-input:checked {
+	background: #cc460a;
+  }
+  .option-input:checked::before {
+	height: 30px;
+	width: 30px;
+	position: absolute;
+	content: '✔';
+	display: inline-block;
+	font-size: 20px;
+	text-align: center;
+	line-height: 33px;
+  }
+  .option-input:checked::after {
+	-webkit-animation: click-wave 0.3s;
+	-moz-animation: click-wave 0.3s;
+	animation: click-wave 0.3s;
+	background: #cc460a;
+	content: '';
+	display: block;
+	position: relative;
+	z-index: 100;
+  }
+  .option-input.radio {
+	border-radius: 50%;
+  }
+  .option-input.radio::after {
+	border-radius: 50%;
+  } */
+
+  
+.hungry input[type="radio"] {
+	display: none;
+  }
+  .hungry input[type="radio"]:not(:disabled) ~ label {
+	cursor: pointer;
+  }
+  .hungry input[type="radio"]:disabled ~ label {
+	color: hsla(150, 5%, 75%, 1);
+	border-color: #e0906c;
+	box-shadow: none;
+	cursor: not-allowed;
+ }
+ .hungry label{
+	height: 100%;
+	display: block;
+	background: rgba(44, 47, 47, 0.8);
+	border: 2px solid white;
+	border-radius: 20px;
+	padding: 1rem;
+	margin-bottom: 1rem;
+	/* //margin: 1rem; */
+	text-align: center;
+	box-shadow: 0px 3px 10px -2px hsla(150, 5%, 65%, 0.5);
+	position: relative;
+  }
+  .hungry input[type="radio"]:checked + label {
+	background: #cc460a;
+	color: hsla(215, 0%, 100%, 1);
+	box-shadow: 0px 0px 20px #e0906c;
+  }
+  .hungry input[type="radio"]:checked + label::after {
+	color: hsla(215, 5%, 25%, 1);
+	/* font-family: FontAwesome; */
+	border: 2px solid #e0906c;
+	/* content: "\f00c"; */
+	content: '✔';
+	font-size: 24px;
+	position: absolute;
+	top: -35px;
+	left: 50%;
+	transform: translateX(-50%);
+	height: 50px;
+	width: 50px;
+	line-height: 50px;
+	text-align: center;
+	border-radius: 50%;
+	background: white;
+	box-shadow: 0px 2px 5px -2px hsla(0, 0%, 0%, 0.25);
+  }
+  .hungry input[type="radio"]#control_05:checked + label {
+	background: red;
+	border-color: red;
+  }
+  .hungry p {
+	font-weight: 900;
+  }
+  
+  
+  @media only screen and (max-width: 700px) {
+	section {
+	  flex-direction: column;
+	}
+  }
+  
+
+
+
+
+
+
+::placeholder{
+	color:white!important;
+	opacity: 1;
+}
+
+::-webkit-input-placeholder{
+	color:#fff!important;
+	opacity: 1;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #fff!important;
+   opacity: 1;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #fff!important;
+   opacity: 1;  
+}
+
+:-ms-input-placeholder {  
+   color: #fff!important;
+   opacity: 1;  
+}
+
+
+.row input[type="submit"]:hover {
+	background: #eb5d20;
+	color: #272829;
+}
+.w3ls-1{
+	margin-left:10px;
+}
+.agile_its_registration input[type=number], .agile_its_registration input[type=email] {
+    padding: 0.8em 1em;
+    color: #fff;
+    font-size: 0.9em;
+    outline: none;
+    background: transparent;
+    border: 1px solid #fff;
+    margin: 0 0;
+	border-radius:5px;
+    -webkit-appearance: none;
+    width: 100%;
+}
+form.agile_form {
+    width: 50%;
+}
+.agile_its_registration textarea {
+    padding: 0.8em 1em;
+    color: #fff;
+    font-size: 0.9em;
+    outline: none;
+    border: 1px solid #fff;
+    background: transparent;
+    -webkit-appearance: none;
+    width: 92%;
+    font-family: 'Hind', sans-serif;
+    width: 87%;
+	resize:none;
+	height:5em;
+    border-radius: 5px;
+}
+.row input[type="submit"] {
+    background: #cc460a;
+    width: 100%;
+	margin:1em 0 0;
+    display: block;
+    padding: 0.7em 1em;
+    margin-right: 5px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+	border-radius:5px;
+    outline: none;
+    font-size: 0.9em;
+    text-transform: capitalize;
+    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+}
+/* //form */
+::-webkit-input-placeholder{
+	color:#fff;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #fff;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #fff;  
+}
+
+:-ms-input-placeholder {  
+   color: #fff;  
+}
+.agileits_w3layouts_copyright p, .agileits_w3layouts_copyright a {
+    font-size: 1em;
+    color: #fff;
+}
+.agileits_w3layouts_copyright {
+    padding: 0 0 2em;
+}
+/* -- Responsive code -- */
+@media screen and (max-width: 1440px){
+	.container {
+		width: 54%;
+	}
+}
+@media screen and (max-width: 1366px){
+	.container {
+		width: 56%;
+	}
+}
+@media screen and (max-width: 1050px){
+	h1.agileits-title {
+		font-size: 3.5em;
+    }
+	.container {
+		width: 58%;
+	}
+}
+@media screen and (max-width: 1024px){
+	.container {
+		width: 60%;
+	}
+}
+@media screen and (max-width: 991px){
+	h1.agileits-title {
+		font-size: 3.1em;
+	}
+	.login-form {
+		padding: 3em 2.5em;
+	}
+}
+@media screen and (max-width: 900px){
+	.container {
+		width: 66%;
+	}
+	h2.sub-head-w3-agileits {
+		font-size: 1.4em;
+	}
+	.container {
+		width: 74%;
+	}
+}
+@media screen and (max-width: 768px){
+	.container {
+		width: 78%;
+	}
+	.hungry{
+		width:50%;
+		display: block;
+		margin: 1rem 25%;
+	}
+}
+@media screen and (max-width: 736px){
+	.container {
+		width: 81%;
+	}
+	h1.agileits-title {
+		font-size: 2.8em;
+	}
+}
+@media screen and (max-width: 667px){
+	h2.sub-head-w3-agileits {
+		font-size: 1.2em;
+	}
+	.container {
+		width: 89%;
+	}
+	.hungry{
+		width:60%;
+	}
+}
+@media screen and (max-width: 640px){
+	.container {
+		width: 93%;
+	}
+	.hungry{
+		width:65%;
+	}
+}
+@media screen and (max-width: 600px){
+	.container {
+		width: 94%;
+	}
+	.login-form {
+		padding: 3em 1.5em;
+	}
+	.hungry{
+		width:70%;
+	}
+}
+@media screen and (max-width: 568px){
+	h2.sub-head-w3-agileits {
+		font-size: 1.1em;
+	}
+	.container {
+		width: 87%;
+	}
+	.agileits-location {
+		width: 100%;
+	}
+	.w3ls-1 {
+		 margin-left: 0;
+	}
+	.agile_its_registration input[type=text], .agile_its_registration input[type=email] {
+		width: 100%;
+	}
+	.agile_its_registration input[type="submit"] {
+		width: 50%;
+	}
+	h2.sub-head-w3-agileits {
+		font-size: 1.1em;
+		line-height: 1.7;
+		padding:0 1em;
+	}
+	h1.agileits-title {
+		font-size: 2.5em;
+	}
+	.login-form {
+		margin: 2em auto;
+	}
+	.agile_its_registration textarea {
+        width: 100%;
+	}
+	.hungry{
+		width:80%;
+	}
+}
+@media screen and (max-width: 480px){
+	form.agile_form {
+		width: 91%;
+	}
+	.hungry{
+		/* width:90%; */
+		margin:1.1rem auto 1.1rem auto;
+	}
+	.hungry:first-child{
+		margin:0 auto 1.1rem auto;
+	}
+}
+@media screen and (max-width: 414px){
+	form.agile_form {
+		width: 89%;
+	}
+	.agileits_w3layouts_copyright {
+		padding: 0 1em 1em;
+	}
+	.login-form {
+		padding: 2em 1.5em;
+	}
+	.agileits_w3layouts_copyright p,.agileits_w3layouts_copyright a{
+		font-size: 0.95em;
+	}
+}
+@media screen and (max-width: 384px){
+	form.agile_form {
+		width: 88%;
+	}
+	h1.agileits-title {
+		font-size: 2.2em;
+	}
+	.agileits-location {
+	   margin: 0 0 0.8em 0;
+	}
+}
+@media screen and (max-width: 375px){
+	.container {
+		width: 92%;
+	}
+}
+@media screen and (max-width: 320px){
+	form.agile_form {
+		width: 85%;
+	}
+}
+/* -- //Responsive code -- */
+
+
+
+
+
+
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    border-radius: 5px;
+    height: 5px;
+    width: 100%; /* Full-width */
+    height: 5px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 40px; /* Set a specific slider handle width */
+    height: 40px;
+    border-radius: 50%; 
+    background: linear-gradient(#cc460a,#d15822); /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
